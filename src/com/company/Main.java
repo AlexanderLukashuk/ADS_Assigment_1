@@ -36,5 +36,8 @@ public class Main {
         System.out.println("Index of = " + myList.lastIndexOf(69));
         System.out.println(myList.contains(91) ? "Linked list has element 91" : "Linked list has not element 91");
         System.out.println(myList.contains(2) ? "Linked list has element 2" : "Linked list has not element 2");
+
+        myList.sort();
+        myList.ShowList();
     }
 }

@@ -165,12 +165,21 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
 
     @Override
     public void sort() {
-        for (MyNode<T> i = head; i != null; i = i.next) {
-            if (i.data.compareTo(i.next.data) > 0) {
-                MyNode<T> temp = i;
-                //i.next.prev = i.prev;
-                i = i.next;
-                i.next = temp;
+        if (length < 2) {
+            return;
+        }
+
+        MyNode<T> node;
+
+        for (int i = 0; i < length - 1; i++) {
+            node = head;
+            for (int j = i; j < length - i - 1; j++) {
+                if ((node.data).compareTo(node.next.data) > 0) {
+                    T temp = node.data;
+                    node.data = node.next.data;
+                    node.next.data = temp;
+                }
+                node = node.next;
             }
         }
     }
