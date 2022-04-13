@@ -31,13 +31,22 @@ public class Main {
         myList.remove(4);
 
         myList.ShowList();
+        System.out.println("Size of linked list = " + myList.size());
 
         System.out.println("Index of = " + myList.indexOf(69));
         System.out.println("Index of = " + myList.lastIndexOf(69));
         System.out.println(myList.contains(91) ? "Linked list has element 91" : "Linked list has not element 91");
         System.out.println(myList.contains(2) ? "Linked list has element 2" : "Linked list has not element 2");
 
+        //myList.remove(34);
+        myList.remove(5);
+        myList.ShowList();
+
         myList.sort();
         myList.ShowList();
+
+        System.out.println("Size of linked list = " + myList.size());
+        myList.clear();
+        System.out.println("Size of linked list = " + myList.size());
     }
 }

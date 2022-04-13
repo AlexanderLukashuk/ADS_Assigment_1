@@ -48,15 +48,69 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
 
     @Override
     public boolean remove(T item) {
-        for (MyNode<T> i = head; i != null; i = i.next) {
-            if (i.data == item) {
-                //i.prev = i.next;
-                System.out.println(i.data);
-                i = i.next;
-                return true;
+//        for (MyNode<T> i = head; i != null; i = i.next) {
+//            if (i.data == item) {
+//                //i.prev = i.next;
+//                System.out.println(i.data);
+//                i = i.next;
+//                return true;
+//            }
+//        }
+//        return false;
+
+//        MyNode<T> elem = head;
+//
+//        while (elem.data != item) {
+//            elem = elem.next;
+//        }
+//
+//        MyNode<T> current = elem.next;
+//        elem.next = current.next;
+//        length--;
+//        return true;
+
+
+//        for (MyNode<T> i = head; i != null; i = i.next) {
+//            if (i.data == item) {
+//                if (i == head) {
+//                    head = head.next;
+//                } else if (i == tail) {
+//                    tail = tail.prev;
+//                } else {
+////                    MyNode<T> current = i.next;
+////                    i = current.next;
+//                    i.next.prev = i.prev;
+//                }
+//                length--;
+//                return true;
+//            }
+//        }
+
+        if (item == head.data) {
+            head.next.prev = null;
+            head = head.next;
+            length--;
+            return true;
+        } else if (item == tail.data) {
+            tail = tail.prev;
+            length--;
+            return true;
+        } else {
+            MyNode<T> current = head;
+//            while (current.data != item) {
+//                current = current.next;
+//            }
+            for (int i = 0; i < length; i++) {
+                if (current.data == item) {
+                    current.next.prev = current.prev;
+                    current.prev.next = current.next;
+                    length--;
+                    return true;
+                }
+                current = current.next;
             }
+            return false;
         }
-        return false;
     }
 
     @Override
