@@ -48,5 +48,16 @@ public class Main {
         System.out.println("Size of linked list = " + myList.size());
         myList.clear();
         System.out.println("Size of linked list = " + myList.size());
+
+        MyArrayList<Integer> myArr = new MyArrayList<>();
+        myArr.add(5);
+        myArr.add(78);
+        myArr.add(32);
+
+        myArr.add(60, 1);
+
+        myArr.ShowArray();
+        myArr.remove(1);
+        myArr.ShowArray();
     }
 }
